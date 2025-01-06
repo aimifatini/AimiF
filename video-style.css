@@ -1,0 +1,26 @@
+.friends-content {
+    display: flex;
+    flex-direction: column; /* Stack image and video vertically */
+    align-items: center; /* Center-align the content */
+    gap: 20px; /* Space between the image and video */
+    margin: 20px 0;
+}
+
+.friends-image {
+    width: 320px; /* Same width as the video for alignment */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.friends-video {
+    width: 320px; /* Match the video width */
+    height: 240px;
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease; /* Add hover effect */
+}
+
+.friends-video:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}

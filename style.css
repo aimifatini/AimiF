@@ -1,0 +1,24 @@
+.education-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.education-table th {
+    background-color: #ff99cc;
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.education-table td {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.education-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
