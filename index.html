@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aimi Fatini Binti Arifin - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="hobby-styles.css">
+    <link rel="stylesheet" href="styles.css">
+
+
+
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff7f3;
+            color: #333;
+        }
+
+        .date-time {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #ff99cc;
+            color: #2c2c54;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            z-index: 1000;
+        }
+
+        .song-control {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #ff99cc;
+            color: #2c2c54;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            z-index: 1000;
+            cursor: pointer;
+        }
+
+        header {
+            background: url('header-background.jpg') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            color: #2c2c54;
+            border-bottom: 5px solid #ff99cc;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5rem;
+            margin: 0 0 20px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 20px;
+        }
+
+        header img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        header img:hover {
+            transform: scale(1.1);
+        }
+
+        nav {
+            background-color: #ff99cc;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 5px solid #ff6699;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #2c2c54;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        section {
+            padding: 50px 20px;
+            margin-bottom: 30px;
+            border: 2px solid #ff99cc;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ff6699;
+            font-size: 2.5rem;
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .image-gallery div {
+            text-align: center;
+        }
+
+        .image-gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .image-gallery p {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #4b6584;
+        }
+
+        .hobby-intro {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: #4b6584;
+        }
+
+        footer {
+            background-color: #ff99cc;
+            color: #2c2c54;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 5px solid #ff6699;
+            overflow: hidden;
+        }
+
+        .footer-text {
+            position: relative;
+            display: inline-block;
+            animation: slideInOut 5s infinite;
+        }
+
+        @keyframes slideInOut {
+            0% {
+                transform: translateX(100%);
+            }
+            50% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .social-media img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+
+        .social-media img:hover {
+            transform: scale(1.2);
+        }
+
+        #contact {
+            padding: 30px 20px;
+        }
+
+        .about-list {
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+
+        .about-list li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: #4b6584;
+        }
+
+    </style>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            const time = now.toLocaleTimeString();
+            const dateTimeString = `${day}/${month}/${year} ${time}`;
+            document.getElementById('date-time').innerText = dateTimeString;
+        }
+
+        function toggleSong() {
+            const audio = document.getElementById('audio-player');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+
+        setInterval(updateDateTime, 1000);
+    </script>
+</head>
+<body onload="updateDateTime()">
+
+<div id="date-time" class="date-time"></div>
+<div class="song-control" onclick="toggleSong()">♬</div>
+<audio id="audio-player" src="song1.mp3"></audio>
+
+<header>
+    <div class="header-content">
+        <h1>Hi There, I'm Aimi </h1>
+         <img src="aimi2.jpg" alt="Aimi Fatini">
+         <p>Welcome to my website – a vibrant space where passion and creativity unite to inspire and connect! Please deeply dive into my journey, filled with stories, ideas, and projects that reflect my dedication and enthusiasm. Whether you're here to explore, collaborate, or be inspired, let's connect and work together to create something extraordinary!</p>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#ABOUT">ABOUT ME</a></li>
+        <li><a href="#EDUCATION">EDUCATION</a></li>
+        <li><a href="#EXPERIENCE">EXPERIENCE</a></li>
+        <li><a href="#HOBBY">HOBBY</a></li>
+        <li><a href="#FAMILY">FAMILY</a></li>
+        <li><a href="#FRIENDS">FRIENDS</a></li>
+        <li><a href="#CONTACT">CONTACT</a></li>
+    </ul>
+</nav>
+
+<section id="ABOUT">
+    <h2 style="text-align: center; color: #ff6699; font-family: 'Fredoka One', cursive; font-size: 2.5rem;">
+        ABOUT ME
+    </h2>
+    <ol style="list-style-type: decimal; padding-left: 20px; font-family: 'Quicksand', sans-serif; font-size: 1.2rem; color: #4b6584; margin: 20px;">
+        <li style="margin-bottom: 10px;"><strong>Name:</strong> Aimi Fatini Binti Arifin</li>
+        <li style="margin-bottom: 10px;"><strong>Age:</strong> 21 Years Old</li>
+        <li style="margin-bottom: 10px;"><strong>Education:</strong> Currently pursuing a diploma in Information Management at UiTM.</li>
+        <li style="margin-bottom: 10px;"><strong>Interests:</strong> Food hunting and hiking.</li>
+        <li style="margin-bottom: 10px;"><strong>Goals:</strong> To excel in my studies, launch a successful waffle business, and grow both personally and professionally.</li>
+    </ol>
+</section>
+
+
+<section id="EDUCATION">
+    <h2 style="color: #9b59b6; font-weight: bold;">EDUCATION</h2>
+    <table class="education-table" style="margin: 0 auto; width: 80%; text-align: center; border-spacing: 15px; border: 1px solid #9b59b6;">
+        <thead>
+            <tr>
+                <th style="border: 1px solid #9b59b6; background-color: #f3e5f5; color: #6a1b9a; font-weight: bold;">Picture</th>
+                <th style="border: 1px solid #9b59b6; background-color: #f3e5f5; color: #6a1b9a; font-weight: bold;">School/University</th>
+                <th style="border: 1px solid #9b59b6; background-color: #f3e5f5; color: #6a1b9a; font-weight: bold;">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background-color: #e8daef;">
+                <td style="border: 1px solid #9b59b6;"><img src="primary-school.jpg" alt="Primary School" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;"></td>
+                <td style="border: 1px solid #9b59b6; font-weight: bold; color: #6a1b9a;">Sekolah Kebangsaan Putra Utama</td>
+                <td style="border: 1px solid #9b59b6; font-weight: bold; color: #6a1b9a;"><ul><li>During my primary school years, I discovered my love for learning and curiosity about the world around me. Those early days were filled with memorable moments, from making friends to participating in fun school activities that shaped my enthusiasm for exploration and creativity.</li></ul></td>
+            </tr>
+            <tr style="background-color: #ede7f6;">
+                <td style="border: 1px solid #9b59b6;"><img src="high-school.jpg" alt="High School" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;"></td>
+                <td style="border: 1px solid #9b59b6; font-weight: bold; color: #6a1b9a;">Sekolah Menengah Kebangsaan Kulai Besar</td>
+                <td style="border: 1px solid #9b59b6; font-weight: bold; color: #6a1b9a;"><ul><li>During my high school years as a business student, I had the opportunity to delve into subjects like Perniagaan and Tasawwur Islam, which deepened my understanding of entrepreneurship and the integration of Islamic values into daily life. These experiences enhanced my knowledge and shaped my perspective on ethical business practices and holistic problem-solving.</li></ul></td>
+            </tr>
+            <tr style="background-color: #e8daef;">
+                <td style="border: 1px solid #9b59b6;"><img src="university.jpg" alt="University" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;"></td>
+                <td style="border: 1px solid #9b59b6; font-weight: bold; color: #6a1b9a;">Universiti Teknologi Mara</td>
+                <td style="border: 1px solid #9b59b6; font-weight: bold; color: #6a1b9a;"><ul><li>As an Information Management student at Universiti Teknologi MARA (UiTM), I gained valuable insights into the principles of data organization, information systems, and digital resource management. This journey has equipped me with the skills to navigate and manage information effectively, preparing me for the challenges of the ever-evolving digital world.</li></ul></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+<section id="EXPERIENCE">
+    <h2>EXPERIENCE</h2>
+    <div class="image-gallery">
+        <div>
+        <ul>
+            <li><h3>National Day Event (Committee)</h3></li></ul>
+        <img src="experience4.jpg" alt="National Day 1">
+            <img src="experience5.jpg" alt="National Day 2">
+        </div>
+        <div>
+            <ul>
+                <li><h3>Program Love Live Laugh (Committee)</h3></li></ul>
+            <img src="experience2.jpg" alt="Love Live 1">
+            <img src="experience3.jpg" alt="Love Live 2">
+        </div>
+        <div>
+            <ul>
+                <li><h3>Pizza Maker at Domino's Pizza</h3></li></ul>
+            <img src="experience6.jpg" alt="Pizza 1">
+            <img src="experience7.jpg" alt="Pizza 2">
+        </div>
+    </div>
+</section>
+
+<section id="HOBBY">
+    <h2>HOBBY</h2>
+    <p class="hobby-intro">My hobbies include food hunting and hiking, where I explore various places to discover unique cuisines and breathtaking trails. I enjoy trying diverse dishes, exploring scenic routes, and sharing my experiences with others.</p>
+    
+    <h3>Food Hunting</h3>
+    <div class="image-gallery">
+        <div>
+            <img src="food1.jpg" alt="Food 1">
+            <p>📍Manzanita, Paradigm JB</p>
+        </div>
+        <div>
+            <img src="food2.jpg" alt="Food 2">
+            <p>📍Secangkir Teko, Segamat</p>
+        </div>
+        <div>
+            <img src="food3.jpg" alt="Food 3">
+            <p>📍The Burgers, JB</p>
+        </div>
+        <div>
+            <img src="food4.jpg" alt="Food 4">
+            <p>📍Ashhryshoshedap, JB</p>
+        </div>
+        <div>
+            <img src="food5.jpg" alt="Food 5">
+            <p>📍Pak Maon Western, YongPeng</p>
+        </div>
+        <div>
+            <img src="food6.jpg" alt="Food 6">
+            <p>📍J.Co, Kulai</p>
+        </div>
+        <div>
+            <img src="food7.jpg" alt="Food 7">
+            <p>📍SMOKD, JB</p>
+        </div>
+        <div>
+            <img src="food8.jpg" alt="Food 8">
+            <p>📍Pebbles Cafe, Kulai</p>
+        </div>
+        <div>
+            <img src="food9.jpg" alt="Food 9">
+            <p>📍The Butter, Melaka</p>
+        </div>
+        <div>
+            <img src="food10.jpg" alt="Food 10">
+            <p>📍Tomyam Ramai-Ramai, Kulai</p>
+        </div>
+        <div>
+            <img src="food11.jpg" alt="Food 11">
+            <p>📍Meat VKing Bistro, Kulai</p>
+        </div>
+        <div>
+            <img src="food12.jpg" alt="Food 12">
+            <p>📍Kanteen, JB</p>
+        </div>
+    </div>
+
+    <h3>Hiking</h3>
+    <div class="image-gallery">
+        <div>
+            <img src="hiking1.jpg" alt="Hiking 1">
+            <p>📍Tasik Biru, Skudai</p>
+        </div>
+        <div>
+            <img src="hiking3.jpg" alt="Hiking 2">
+            <p>📍Gunung Pulai, Kulai</p>
+        </div>
+        <div>
+            <img src="hiking2.jpg" alt="Hiking 3">
+            <p>📍Gunung Lambak, Johor</p>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="FAMILY">
+    <h2>FAMILY</h2>
+    <div class="image-gallery">
+        <div><img src="family1.jpg" alt="Family Member 1"></div>
+        <div><img src="family2.jpg" alt="Family Member 2"></div>
+        <div><img src="family3.jpg" alt="Family Member 3"></div>
+        <div><img src="family4.jpg" alt="Family Member 4"></div>
+    </div>
+</section>
+
+
+<section id="FRIENDS">
+    <h2>FRIENDS</h2>
+    <div class="image-gallery">
+        <div><img src="friend1.jpg" alt="Friend 1"></div>
+        <div><img src="friend2.jpg" alt="Friend 2"></div>
+        <div><img src="friend3.jpg" alt="Friend 3"></div>
+        <div><img src="friend4.jpg" alt="Friend 4"></div>
+        <div><img src="friend5.jpg" alt="Friend 5"></div>
+        <div><img src="friend6.jpg" alt="Friend 6"></div>
+        <div><img src="friend7.jpg" alt="Friend 7"></div>
+        <div><img src="friend8.jpg" alt="Friend 8"></div>
+        <div><img src="friend9.jpg" alt="Friend 9"></div>
+        <div><img src="friend10.jpg" alt="Friend 10"></div>
+        <div><img src="friend11.jpg" alt="Friend 10"></div>
+        <div><img src="friend12.jpg" alt="Friend 10"></div>
+        <div class="video-gallery">
+            <video width="320" height="240" controls class="friends-video">
+                <source src="video1.MP4" type="video/mp4">
+            </video>
+        </div>
+</section>
+
+<section id="CONTACT">
+    <h2>CONTACT</h2>
+    <div class="social-media">
+        <a href="https://www.tiktok.com/@miyvsuniverse" target="blank">
+            <img src="tiktok.png" alt="TikTok">
+        </a>
+        <a href="https://www.instagram.com/miyvsuniverse/profilecard/?igsh=anFucmpqZzBqdHYy" target="blank">
+            <img src="instagram.png" alt="Instagram">
+        </a>
+        <a href="https://wa.link/ggl0r5" target="blank">
+            <img src="whatsapp.png" alt="WhatsApp">
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-text">&copy; 2025 AimiF. All rights reserved.
